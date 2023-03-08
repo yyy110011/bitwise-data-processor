@@ -23,13 +23,13 @@ class DataWorker
         struct DataWorkerConfig config_;
         std::unique_ptr<DataAnalyzer> data_analyzer_;
 
-        std::shared_ptr<shared_queue<std::pair<long long, float>>> score_queue_;
+        std::shared_ptr<shared_queue<std::pair<int64_t, float>>> score_queue_;
 
     public:
 
         std::vector<uint8_t> prev_data, prev_difference;
 
-        DataWorker(std::shared_ptr<shared_queue<std::pair<long long, float>>> shared_score_queue,
+        DataWorker(std::shared_ptr<shared_queue<std::pair<int64_t, float>>> shared_score_queue,
                         struct DataWorkerConfig cfg): 
                         score_queue_(shared_score_queue), config_(cfg) {
             data_analyzer_ = std::make_unique<DataAnalyzer>(config_.source_size, config_.identical_size);

@@ -32,7 +32,7 @@ static std::string GetEnv(const std::string & var)
     }
 }
 
-static long long getUNIXTimestamp()
+static int64_t getUNIXTimestamp()
 {
     const auto p1 = std::chrono::system_clock::now();
     return std::chrono::duration_cast<std::chrono::milliseconds>(p1.time_since_epoch()).count();

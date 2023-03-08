@@ -11,7 +11,7 @@ int main()
     try
     {
         // Shared queue to share data between DataWorker and DataSender
-        auto shared_score_queue = std::make_shared<shared_queue<std::pair<long long, float>>>();
+        auto shared_score_queue = std::make_shared<shared_queue<std::pair<int64_t, float>>>();
         curl_global_init(CURL_GLOBAL_DEFAULT);
 
         // Get env to set configs

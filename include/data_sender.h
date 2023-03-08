@@ -21,13 +21,13 @@ class DataSender
         CURL *curl_;
         int output_amount_;
         struct DataSenderConfig cfg_;
-        std::vector<std::pair<long long, float>> sending_queue_;
+        std::vector<std::pair<int64_t, float>> sending_queue_;
 
-        std::shared_ptr<shared_queue<std::pair<long long, float>>> score_queue_;
+        std::shared_ptr<shared_queue<std::pair<int64_t, float>>> score_queue_;
 
     public:
 
-        DataSender(std::shared_ptr<shared_queue<std::pair<long long, float>>> shared_score_queue, 
+        DataSender(std::shared_ptr<shared_queue<std::pair<int64_t, float>>> shared_score_queue, 
                     struct DataSenderConfig data_sender_config): 
                     score_queue_(shared_score_queue), cfg_(data_sender_config){
             curl_ = curl_easy_init();

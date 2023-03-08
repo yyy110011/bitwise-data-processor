@@ -9,14 +9,14 @@ int main()
 {
     std::random_device rd;
     std::mt19937 gen(rd());
-    std::uniform_int_distribution<unsigned long long> dis(0, (1ULL << 64) - 1);
+    std::uniform_int_distribution<uint64_t> dis(0, (1ULL << 64) - 1);
 
     // Generate 2048 random bits
     std::bitset<BITS> random_bits;
     int times = BITS >> 5;
     for (int i = 0; i < times; i++)
     {
-        unsigned long long rand_num = dis(gen);
+        uint64_t rand_num = dis(gen);
         random_bits = random_bits<<32;
         random_bits |= std::bitset<BITS>(rand_num);
         
