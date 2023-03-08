@@ -1,0 +1,9 @@
+#!/bin/bash
+export SOURCE_HOSTNAME=http://127.0.0.1:5001/random
+export SOURCE_SIZE=128
+export IDENTICAL_SIZE=32
+
+export CHANNEL_ID=1024
+export OUTPUT_HOSTNAME=http://127.0.0.1:5002/ingest
+export OUTPUT_AMOUNT=3
+
