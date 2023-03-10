@@ -11,7 +11,7 @@ class DataAnalyzer
 
         int source_size_;
         int identical_size_;
-
+        std::vector<uint8_t> prev_data_, prev_difference_;
     public:
 
         DataAnalyzer(int source_size, int identical_size): source_size_(source_size), identical_size_(identical_size){
@@ -30,5 +30,7 @@ class DataAnalyzer
         std::vector<uint8_t> DoCompare(const std::vector<uint8_t>& b1, const std::vector<uint8_t>& b2);
 
         float CalScore(const std::vector<uint8_t>& c1, const std::vector<uint8_t>& c2);
+
+        void Calculate(std::vector<uint8_t> curr_data, float &output_score);
 };
 #endif // __DATA_ANALYZER_H__

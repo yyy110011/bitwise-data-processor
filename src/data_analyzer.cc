@@ -49,3 +49,16 @@ float DataAnalyzer::CalScore(const std::vector<uint8_t>& c1, const std::vector<u
     }
     return output;
 }
+
+void DataAnalyzer::Calculate(std::vector<uint8_t> curr_data, float &output_score) {
+    if (!prev_data_.empty())
+    {
+        auto curr_differece = DoCompare(prev_data_, curr_data);
+        if (!prev_difference_.empty())
+        {
+            output_score = CalScore(prev_difference_, curr_differece);
+        }
+        prev_difference_ = curr_differece;
+    }
+    prev_data_ = curr_data;
+}

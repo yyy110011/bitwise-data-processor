@@ -27,18 +27,19 @@ class DataWorker
 
     public:
 
-        std::vector<uint8_t> prev_data, prev_difference;
-
         DataWorker(std::shared_ptr<shared_queue<std::pair<int64_t, float>>> shared_score_queue,
                         struct DataWorkerConfig cfg): 
                         score_queue_(shared_score_queue), config_(cfg) {
             data_analyzer_ = std::make_unique<DataAnalyzer>(config_.source_size, config_.identical_size);
             curl_ = curl_easy_init();
+            InitCurl();
         };
 
         ~DataWorker(){
             curl_easy_cleanup(curl_);
         };
+
+        void InitCurl();
 
         bool Download();
 
