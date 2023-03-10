@@ -8,21 +8,19 @@
 #include <mutex>
 #include <curl/curl.h>
 
-struct DataWorkerConfig
-{
+struct DataWorkerConfig {
     std::string url;
     int source_size;
     int identical_size;
 };
 
-class DataWorker
-{
+class DataWorker {
+
     private:
 
         CURL* curl_;
         struct DataWorkerConfig config_;
         std::unique_ptr<DataAnalyzer> data_analyzer_;
-
         std::shared_ptr<shared_queue<std::pair<int64_t, float>>> score_queue_;
 
     public:
@@ -48,4 +46,5 @@ class DataWorker
 
         size_t Task(char* data, size_t size);
 };
+
 #endif // __WORKER_H__

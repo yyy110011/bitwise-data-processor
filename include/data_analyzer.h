@@ -5,13 +5,14 @@
 
 #include <cassert>
 
-class DataAnalyzer 
-{
+class DataAnalyzer {
+
     private:
 
         int source_size_;
         int identical_size_;
         std::vector<uint8_t> prev_data_, prev_difference_;
+
     public:
 
         DataAnalyzer(int source_size, int identical_size): source_size_(source_size), identical_size_(identical_size){
@@ -33,4 +34,5 @@ class DataAnalyzer
 
         void Calculate(std::vector<uint8_t> curr_data, float &output_score);
 };
+
 #endif // __DATA_ANALYZER_H__

@@ -14,15 +14,14 @@ struct DataSenderConfig {
     int output_amount;
 };
 
-class DataSender
-{
+class DataSender {
+
     private:
 
         CURL *curl_;
         int output_amount_;
         struct DataSenderConfig cfg_;
         std::vector<std::pair<int64_t, float>> sending_queue_;
-
         std::shared_ptr<shared_queue<std::pair<int64_t, float>>> score_queue_;
 
     public:
@@ -33,12 +32,13 @@ class DataSender
             curl_ = curl_easy_init();
         };
 
-        ~DataSender(){
-            curl_easy_cleanup(curl_);
-        };
+        ~DataSender(){ curl_easy_cleanup(curl_); };
 
-        void ClearScoreQueue(){score_queue_.get()->queue.clear();};
-        void ClearSendingQueue(){sending_queue_.clear();};
+        void ClearScoreQueue() { score_queue_.get()->queue.clear(); };
+
+        void ClearSendingQueue() {
+            sending_queue_.clear();
+        };
 
         void CopyToInternalQueue();
         void SendData();
