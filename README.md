@@ -1,5 +1,8 @@
 # bitwise-data-processor
 
+## Update
+Add data_processor_v2 for new system design.
+
 ## Setup source server
 The server will listen to 127.0.0.1:5001.
 ```shell
@@ -41,4 +44,6 @@ source ./setEnv
 ./data_processor
 ```
 
-
+## To do
+* more test
+* using docker compose
