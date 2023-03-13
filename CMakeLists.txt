@@ -9,7 +9,6 @@ add_library(logging SHARED
 add_executable(data_processor 
     main.cc 
     src/data_worker.cc
-    src/data_downloader.cc
     src/data_analyzer.cc
     src/data_sender.cc
 )
@@ -21,8 +20,8 @@ target_link_libraries(data_processor logging)
 
 add_executable(small_test 
     small_test.cc 
-    src/data_analyzer.cc
     src/data_worker.cc
+    src/data_analyzer.cc
     src/data_sender.cc
 )
 find_package(GTest REQUIRED)
