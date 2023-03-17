@@ -5,6 +5,24 @@
 
 #include <cassert>
 
+/*
+    Class: DataAnalyzer
+
+    This class provides an interface to analyze a given set of data for similarity with the previously analyzed data.
+
+    Member Variables:
+        - source_size_ : Int variable to store the source size of the data.
+        - identical_size_ : Int variable to store the identical size of the data.
+        - prev_data_ : Vector of uint8_t to store the previously analyzed data.
+        - prev_difference_ : Vector of uint8_t to store the difference between the previously analyzed data and the current data.
+
+    Member Functions:
+        - Constructor: Initializes the data members of the class using the given source size and identical size
+        - Destructor: Cleans up any resources created during the lifetime of the object
+        - int get_source_size(): Returns the source size of the data
+        - int get_identical_size(): Returns the identical size of the data
+        - bool isPrefixIdentical(const std::vector<uint8_t>& b1, const std::vector<uint8_t>& b2):
+*/
 class DataAnalyzer {
 
     private:
